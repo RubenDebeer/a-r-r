@@ -125,6 +125,18 @@ def count_glossary() -> int:
 # Main build
 # ──────────────────────────────────────────────────────────────────────────────
 
+FAVICON_SVG = """\
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <rect width="32" height="32" rx="7" fill="#130F0D"/>
+  <circle cx="16" cy="16" r="2.6" fill="#59FFF5"/>
+  <path d="M10.2 10.2a8.2 8.2 0 0 0 0 11.6M21.8 10.2a8.2 8.2 0 0 1 0 11.6"
+        fill="none" stroke="#59FFF5" stroke-width="2.2" stroke-linecap="round"/>
+  <path d="M5.8 5.8a14.4 14.4 0 0 0 0 20.4M26.2 5.8a14.4 14.4 0 0 1 0 20.4"
+        fill="none" stroke="#59FFF5" stroke-width="1.6" stroke-linecap="round" opacity="0.45"/>
+</svg>
+"""
+
+
 def build():
     SITE.mkdir(exist_ok=True)
 
@@ -177,6 +189,8 @@ def build():
         },
     }
 
+    (SITE / "favicon.svg").write_text(FAVICON_SVG, encoding="utf-8")
+
     html = render_spa(data)
     (SITE / "index.html").write_text(html, encoding="utf-8")
     print(f"_site/index.html — {len(chapters_json)} chapters, {done_count} done")
@@ -195,6 +209,7 @@ def render_spa(data: dict) -> str:
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Amateur Radio Study Notes</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
