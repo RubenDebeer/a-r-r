@@ -112,12 +112,13 @@ Read `state/progress.md`.
 
 ---
 
-## Step 7 — Update Nav Config
+## Step 7 — Update the Nav Manifest
 
-Read `books/<book-slug>/mkdocs.yml`.
+Read `books/<book-slug>/book.yml`.
 
-Add the new chapter to the `nav:` section in chapter order:
+Add the new chapter to the `nav:` list in chapter order:
 ```yaml
+site_name: <Book Title>
 nav:
   - Home: index.md
   - Chapter 1 — <Title>: ch01-<slug>.md
@@ -126,14 +127,25 @@ nav:
 
 ---
 
-## Step 8 — Auto-Commit
+## Step 8 — Run the Build
+
+Execute `python3 build.py` from the repo root to regenerate `_site/index.html`.
+
+- Confirm the output line shows the updated chapter count and no Python errors.
+- Do not commit if the build fails — fix the issue first.
+
+---
+
+## Step 9 — Auto-Commit
 
 Stage all new and modified files:
 - `books/<book-slug>/docs/chNN-<slug>.md`
 - `books/<book-slug>/docs/figures/*` (any new figures)
-- `books/<book-slug>/mkdocs.yml`
+- `books/<book-slug>/book.yml`
 - `state/progress.md`
 - `state/glossary.md`
+
+Do **not** stage `_site/` — it is gitignored.
 
 Commit with the message:
 ```
