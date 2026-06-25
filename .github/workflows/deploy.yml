@@ -34,9 +34,7 @@ jobs:
           books=(books/*/mkdocs.yml)
 
           if [ ${#books[@]} -eq 0 ]; then
-            cat > _site/index.html <<'HTML'
-            <html><body><h1>Study Notes</h1><p>No books registered yet. Run /new-source to add one.</p></body></html>
-HTML
+            echo '<html><body><h1>Study Notes</h1><p>No books registered yet.</p></body></html>' > _site/index.html
           else
             for config in "${books[@]}"; do
               slug=$(basename "$(dirname "$config")")
@@ -44,7 +42,6 @@ HTML
               mkdocs build --config-file "$config" --site-dir "_site/$slug"
             done
 
-            # Generate root index listing all books
             echo '<html><body><h1>Study Notes</h1><ul>' > _site/index.html
             for config in "${books[@]}"; do
               slug=$(basename "$(dirname "$config")")
