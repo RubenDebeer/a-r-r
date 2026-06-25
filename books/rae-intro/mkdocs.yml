@@ -21,3 +21,4 @@ extra_javascript:
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 nav:
   - Home: index.md
+  - Chapter 1 — Overview of Amateur Radio: ch01-overview-of-amateur-radio.md

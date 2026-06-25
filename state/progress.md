@@ -12,3 +12,5 @@ Valid status values: `done`, `in progress`, `queued`.
 
 | Chapter | Title | Status | Notes |
 |---------|-------|--------|-------|
+| 1 | Overview of Amateur Radio | done | |
+| 2 | Operating Procedures | queued | |
