@@ -1,24 +1,4 @@
 site_name: RAE Intro — Study Notes
-theme:
-  name: material
-  features:
-    - navigation.sections
-    - navigation.top
-    - content.code.copy
-docs_dir: docs
-markdown_extensions:
-  - admonition
-  - pymdownx.superfences:
-      custom_fences:
-        - name: mermaid
-          class: mermaid
-          format: !!python/name:pymdownx.superfences.fence_code_format
-  - pymdownx.arithmatex:
-      generic: true
-extra_javascript:
-  - https://unpkg.com/mermaid/dist/mermaid.min.js
-  - https://polyfill.io/v3/polyfill.min.js?features=es6
-  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 nav:
   - Home: index.md
   - Chapter 1 — Overview of Amateur Radio: ch01-overview-of-amateur-radio.md

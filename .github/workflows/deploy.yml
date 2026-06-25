@@ -25,30 +25,10 @@ jobs:
           python-version: '3.x'
 
       - name: Install dependencies
-        run: pip install mkdocs-material
+        run: pip install -r requirements.txt
 
-      - name: Build all books
-        run: |
-          mkdir -p _site
-          shopt -s nullglob
-          books=(books/*/mkdocs.yml)
-
-          if [ ${#books[@]} -eq 0 ]; then
-            echo '<html><body><h1>Study Notes</h1><p>No books registered yet.</p></body></html>' > _site/index.html
-          else
-            for config in "${books[@]}"; do
-              slug=$(basename "$(dirname "$config")")
-              echo "Building: $slug"
-              mkdocs build --config-file "$config" --site-dir "$(pwd)/_site/$slug"
-            done
-
-            echo '<html><body><h1>Study Notes</h1><ul>' > _site/index.html
-            for config in "${books[@]}"; do
-              slug=$(basename "$(dirname "$config")")
-              echo "<li><a href=\"${slug}/\">$slug</a></li>" >> _site/index.html
-            done
-            echo '</ul></body></html>' >> _site/index.html
-          fi
+      - name: Build site
+        run: python build.py
 
       - uses: actions/upload-pages-artifact@v3
         with:
