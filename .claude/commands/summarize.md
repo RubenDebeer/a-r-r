@@ -1,12 +1,6 @@
-# /summarize
-
 Summarise a single chapter from a registered textbook PDF.
 
-**Usage:** `/summarize <book-slug> <chapter>`
+Arguments: $ARGUMENTS
+(Format: <book-slug> <chapter>, e.g. "rae-intro 1")
 
-- `<book-slug>` — the folder name under `sources/` and `books/` (e.g. `arrl-handbook`)
-- `<chapter>` — chapter number or title (e.g. `1` or `"Fundamentals of DC"`)
-
-**What to do:**
-
-Read `.claude/skills/chapter-notes/SKILL.md` and execute every step in order for the given `<book-slug>` and `<chapter>`.
+Read `.claude/skills/chapter-notes/SKILL.md` and execute every step in order using the book-slug and chapter number from the arguments above.
