@@ -7,3 +7,8 @@ Valid status values: `done`, `in progress`, `queued`.
 ---
 
 <!-- Book tables are added here by /new-source and updated by /summarize -->
+
+## rae-intro
+
+| Chapter | Title | Status | Notes |
+|---------|-------|--------|-------|
