@@ -39,7 +39,7 @@ jobs:
             for config in "${books[@]}"; do
               slug=$(basename "$(dirname "$config")")
               echo "Building: $slug"
-              mkdocs build --config-file "$config" --site-dir "_site/$slug"
+              mkdocs build --config-file "$config" --site-dir "$(pwd)/_site/$slug"
             done
 
             echo '<html><body><h1>Study Notes</h1><ul>' > _site/index.html
